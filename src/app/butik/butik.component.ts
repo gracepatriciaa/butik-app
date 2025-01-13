@@ -25,7 +25,7 @@ export class ButikComponent implements OnInit,OnDestroy {
 
   constructor(
     public butikService : ButikService
-    public kategoriService: KategoriService 
+    
   ){}
 
   ngOnInit(): void {
