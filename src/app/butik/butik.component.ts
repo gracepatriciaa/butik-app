@@ -9,9 +9,9 @@ import { KategoriService } from '../services/kategori.service';
 @Component({
   selector: 'app-butik',
   templateUrl: './butik.component.html',
-  styleUrl: './butik.component.css',
-
+  styleUrls: ['./butik.component.css'], // Plural
 })
+
 export class ButikComponent implements OnInit,OnDestroy {
   butikList: Butiks[] =[];
   private getButikSub : Subscription = new Subscription();
@@ -23,8 +23,10 @@ export class ButikComponent implements OnInit,OnDestroy {
   //pagination
   p: number = 1;
 
-  constructor(public butikService : ButikService){
-  }
+  constructor(
+    public butikService : ButikService
+    public kategoriService: KategoriService 
+  ){}
 
   ngOnInit(): void {
     this.getButikSub = this.butikService.getButikListener()
